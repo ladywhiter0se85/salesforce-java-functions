@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "7398cc07-c246-439c-b7af-5d3b0fa04c01",
+		"name": "Salesforce.Functions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25389533"
+	},
+	"item": [
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "GET -  Accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/getAccounts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"getAccounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET -  Accounts By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/getAccountById?accountId=001gK000002OgxzQAC",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"getAccountById"
+							],
+							"query": [
+								{
+									"key": "accountId",
+									"value": "001gK000002OgxzQAC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET -  Accounts By Filter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/getAccountsByFilter?where=BillingState:CA,British Columbia&isAnd=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"getAccountsByFilter"
+							],
+							"query": [
+								{
+									"key": "where",
+									"value": "BillingState:CA,British Columbia"
+								},
+								{
+									"key": "isAnd",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST-  Accounts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"attributes\": {\r\n      \"type\": \"Account\"\r\n    },\r\n    \"name\": \"Test Account 3\",\r\n    \"phone\": \"584-698-9589\",\r\n    \"description\": \"Test Account 3 Creation\"\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/postAccounts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"postAccounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH -  Accounts",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"attributes\": {\r\n      \"type\": \"Account\"\r\n    },\r\n    \"id\": \"001gK000004vD7tQAE\",\r\n    \"description\": \"Test Account 1 Update\"\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/patchAccounts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"patchAccounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT -  Accounts",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"attributes\": {\r\n      \"type\": \"Account\"\r\n    },\r\n    \"id\": \"001gK000004vD7tQAE\",\r\n    \"description\": \"Test Account 1 Upsert\"\r\n  },\r\n  {\r\n    \"attributes\": {\r\n      \"type\": \"Account\"\r\n    },\r\n    \"name\": \"Test Account 4\",\r\n    \"description\": \"Test Account 4 New\",\r\n    \"phone\": \"252-585-6896\"\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/upsertAccounts?externalField=Id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"upsertAccounts"
+							],
+							"query": [
+								{
+									"key": "externalField",
+									"value": "Id"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
