@@ -1,0 +1,26 @@
+[
+  {
+    "attributes": {
+      "type": "Product2"
+    },
+    "id": "mockedProduct2IdOne",
+    "name": "Mocked Software Subscription Product One",
+    "productCode": "S001",
+    "description": "Mocked Software Subscription Product One Description",
+    "isActive": true,
+    "family": "Software",
+    "type__c": "Subscription"
+  },
+  {
+    "attributes": {
+      "type": "Product2"
+    },
+    "id": "mockedProduct2IdTwo",
+    "name": "Mocked Hardware Base Product Product One",
+    "productCode": "H001",
+    "description": "Mocked Hardware Base Product Product One Description",
+    "isActive": true,
+    "family": "Hardware",
+    "type__c": "Base Product"
+  }
+]

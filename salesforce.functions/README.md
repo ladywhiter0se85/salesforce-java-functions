@@ -58,6 +58,24 @@ The goal of the app is to offer a lightweight, extendable backend service to int
             - [Parameters](#parameters-5)
             - [Input Schema](#input-schema-5)
             - [Output Schema](#output-schema-11)
+        - [GET - `/getProduct2s`](#get---getproduct2s)
+            - [Output Schema](#output-schema-12)
+        - [GET - `/getProduct2ById`](#get---getproduct2byid)
+            - [Parameters](#parameters-6)
+            - [Output Schema](#output-schema-13)
+        - [GET - `/getProduct2sByFilter`](#get---getproduct2sbyfilter)
+            - [Parameters](#parameters-7)
+            - [Output Schema](#output-schema-14)
+        - [POST - `/postProduct2s`](#post---postproduct2s)
+            - [Input Schema](#input-schema-6)
+            - [Output Schema](#output-schema-15)
+        - [PATCH - `/patchProduct2s`](#patch---patchproduct2s)
+            - [Input Schema](#input-schema-7)
+            - [Output Schema](#output-schema-16)
+        - [PUT - `/upsertProduct2s`](#put---upsertproduct2s)
+            - [Parameters](#parameters-8)
+            - [Input Schema](#input-schema-8)
+            - [Output Schema](#output-schema-17)
 
 
 ## Current Functions
@@ -76,6 +94,12 @@ This Function App exposes the following endpoints:
 10. **POST** `/postOpportunities` – Returns a list of OperationResponse
 11. **PATCH** `/patchOpportunities` – Returns a list of OperationResponse
 12. **PUT** `/upsertOpportunities` – Returns a list of OperationResponse
+13. **GET** `/getProduct2s` – Returns a list of Salesforce Product2 objects
+14. **GET** `/getProduct2ById` – Returns a Salesforce Product2 object
+15. **GET** `/getProduct2sByFilter` – Returns a list of Salesforce Product2 objects
+16. **POST** `/postProduct2s` – Returns a list of OperationResponse
+17. **PATCH** `/patchProduct2s` – Returns a list of OperationResponse
+18. **PUT** `/upsertProduct2s` – Returns a list of OperationResponse
 
 
 ## Function Breakdown
@@ -88,45 +112,45 @@ Returns a list of Salesforce `Account` objects.
 
 ```json
 [
-    {
-        "attributes": {
-            "type": "Account",
-            "url": "mockedURLAccountOne"
-        },
-        "id": "mockedAccountOneId",
-        "name": "Mocked Account One",
-        "type": "Customer - Direct",
-        "billingAddress": {
-            "street": "312 Constitution Place\nAustin, TX 78767\nUSA",
-            "city": "Austin",
-            "state": "TX",
-            "country": "United States",
-            "stateCode": "TX",
-            "countryCode": "US"
-        },
-        "phone": "(512) 757-6000",
-        "description": "Description for Mocked Account One.",
-        "active__c": "Yes"
+  {
+    "attributes": {
+      "type": "Account",
+      "url": "mockedURLAccountOne"
     },
-    {
-        "attributes": {
-            "type": "Account",
-            "url": "mockedURLAccountTwo"
-        },
-        "id": "mockedAccountTwoId",
-        "name": "Mocked Account Two",
-        "type": "Customer - Direct",
-        "billingAddress": {
-            "street": "525 S. Lexington Ave",
-            "city": "Burlington",
-            "state": "NC",
-            "postalCode": "27215",
-            "country": "USA",
-            "stateCode": "NC",
-            "countryCode": "US"
-        },
-        "phone": "(336) 222-7000"
-    }
+    "id": "mockedAccountOneId",
+    "name": "Mocked Account One",
+    "type": "Customer - Direct",
+    "billingAddress": {
+      "street": "312 Constitution Place\nAustin, TX 78767\nUSA",
+      "city": "Austin",
+      "state": "TX",
+      "country": "United States",
+      "stateCode": "TX",
+      "countryCode": "US"
+    },
+    "phone": "(512) 757-6000",
+    "description": "Description for Mocked Account One.",
+    "active__c": "Yes"
+  },
+  {
+    "attributes": {
+      "type": "Account",
+      "url": "mockedURLAccountTwo"
+    },
+    "id": "mockedAccountTwoId",
+    "name": "Mocked Account Two",
+    "type": "Customer - Direct",
+    "billingAddress": {
+      "street": "525 S. Lexington Ave",
+      "city": "Burlington",
+      "state": "NC",
+      "postalCode": "27215",
+      "country": "USA",
+      "stateCode": "NC",
+      "countryCode": "US"
+    },
+    "phone": "(336) 222-7000"
+  }
 ]
 ```
 
@@ -144,28 +168,26 @@ Returns a Salesforce `Account` object.
 #### Output Schema
 
 ```json
-[
-    {
-        "attributes": {
-            "type": "Account",
-            "url": "mockedURLAccountOne"
-        },
-        "id": "mockedAccountOneId",
-        "name": "Mocked Account One",
-        "type": "Customer - Direct",
-        "billingAddress": {
-            "street": "312 Constitution Place\nAustin, TX 78767\nUSA",
-            "city": "Austin",
-            "state": "TX",
-            "country": "United States",
-            "stateCode": "TX",
-            "countryCode": "US"
-        },
-        "phone": "(512) 757-6000",
-        "description": "Description for Mocked Account One.",
-        "active__c": "Yes"
-    }
-]
+{
+  "attributes": {
+    "type": "Account",
+    "url": "mockedURLAccountOne"
+  },
+  "id": "mockedAccountOneId",
+  "name": "Mocked Account One",
+  "type": "Customer - Direct",
+  "billingAddress": {
+    "street": "312 Constitution Place\nAustin, TX 78767\nUSA",
+    "city": "Austin",
+    "state": "TX",
+    "country": "United States",
+    "stateCode": "TX",
+    "countryCode": "US"
+  },
+  "phone": "(512) 757-6000",
+  "description": "Description for Mocked Account One.",
+  "active__c": "Yes"
+}
 ```
 
 ### GET - `/getAccountsByFilter`
@@ -183,45 +205,45 @@ Returns a list of Salesforce `Account` objects.
 
 ```json
 [
-    {
-        "attributes": {
-            "type": "Account",
-            "url": "mockedURLAccountOne"
-        },
-        "id": "mockedAccountOneId",
-        "name": "Mocked Account One",
-        "type": "Customer - Direct",
-        "billingAddress": {
-            "street": "312 Constitution Place\nAustin, TX 78767\nUSA",
-            "city": "Austin",
-            "state": "TX",
-            "country": "United States",
-            "stateCode": "TX",
-            "countryCode": "US"
-        },
-        "phone": "(512) 757-6000",
-        "description": "Description for Mocked Account One.",
-        "active__c": "Yes"
+  {
+    "attributes": {
+      "type": "Account",
+      "url": "mockedURLAccountOne"
     },
-    {
-        "attributes": {
-            "type": "Account",
-            "url": "mockedURLAccountTwo"
-        },
-        "id": "mockedAccountTwoId",
-        "name": "Mocked Account Two",
-        "type": "Customer - Direct",
-        "billingAddress": {
-            "street": "525 S. Lexington Ave",
-            "city": "Burlington",
-            "state": "NC",
-            "postalCode": "27215",
-            "country": "USA",
-            "stateCode": "NC",
-            "countryCode": "US"
-        },
-        "phone": "(336) 222-7000"
-    }
+    "id": "mockedAccountOneId",
+    "name": "Mocked Account One",
+    "type": "Customer - Direct",
+    "billingAddress": {
+      "street": "312 Constitution Place\nAustin, TX 78767\nUSA",
+      "city": "Austin",
+      "state": "TX",
+      "country": "United States",
+      "stateCode": "TX",
+      "countryCode": "US"
+    },
+    "phone": "(512) 757-6000",
+    "description": "Description for Mocked Account One.",
+    "active__c": "Yes"
+  },
+  {
+    "attributes": {
+      "type": "Account",
+      "url": "mockedURLAccountTwo"
+    },
+    "id": "mockedAccountTwoId",
+    "name": "Mocked Account Two",
+    "type": "Customer - Direct",
+    "billingAddress": {
+      "street": "525 S. Lexington Ave",
+      "city": "Burlington",
+      "state": "NC",
+      "postalCode": "27215",
+      "country": "USA",
+      "stateCode": "NC",
+      "countryCode": "US"
+    },
+    "phone": "(336) 222-7000"
+  }
 ]
 ```
 
@@ -233,14 +255,14 @@ Returns a list of `Operation Response` objects.
 
 ```json
 [
-    {
-        "attributes": {
-            "type": "Account"
-        },
-        "name": "Mocked Salesforce Account",
-        "phone": "588-454-5857",
-        "description": "Mocked Salesforce Account Creation"
-    }
+  {
+    "attributes": {
+      "type": "Account"
+    },
+    "name": "Mocked Salesforce Account",
+    "phone": "588-454-5857",
+    "description": "Mocked Salesforce Account Creation"
+  }
 ]
 ```
 
@@ -248,10 +270,10 @@ Returns a list of `Operation Response` objects.
 
 ```json
 [
-    {
-        "id": "mockedAccountId",
-        "success": true
-    }
+  {
+    "id": "mockedAccountId",
+    "success": true
+  }
 ]
 ```
 
@@ -263,13 +285,13 @@ Returns a list of `Operation Response` objects.
 
 ```json
 [
-    {
-        "attributes": {
-            "type": "Account"
-        },
-        "id": "mockedAccountId",
-        "description": "Mocked Salesforce Account Update"
-    }
+  {
+    "attributes": {
+      "type": "Account"
+    },
+    "id": "mockedAccountId",
+    "description": "Mocked Salesforce Account Update"
+  }
 ]
 ```
 
@@ -277,10 +299,10 @@ Returns a list of `Operation Response` objects.
 
 ```json
 [
-    {
-        "id": "mockedAccountId",
-        "success": true
-    }
+  {
+    "id": "mockedAccountId",
+    "success": true
+  }
 ]
 ```
 
@@ -298,21 +320,21 @@ Returns a list of `Operation Response` objects.
 
 ```json
 [
-    {
-        "attributes": {
-            "type": "Account"
-        },
-        "id": "mockedExistingAccountId",
-        "description": "Mocked Salesforce Account Upsert"
+  {
+    "attributes": {
+      "type": "Account"
     },
-    {
-        "attributes": {
-            "type": "Account"
-        },
-        "name": "Mocked Salesforce Account",
-        "description": "Mocked Salesforce Account Creation",
-        "phone": "252-585-6896"
-    }
+    "id": "mockedExistingAccountId",
+    "description": "Mocked Salesforce Account Upsert"
+  },
+  {
+    "attributes": {
+      "type": "Account"
+    },
+    "name": "Mocked Salesforce Account",
+    "description": "Mocked Salesforce Account Creation",
+    "phone": "252-585-6896"
+  }
 ]
 ```
 
@@ -331,7 +353,6 @@ Returns a list of `Operation Response` objects.
   }
 ]
 ```
-
 
 ### GET - `/getOpportunities`
 
@@ -450,15 +471,15 @@ Returns a list of `Operation Response` objects.
 
 ```json
 [
-    {
-        "attributes": {
-            "type": "Opportunity"
-        },
-        "name": "Mocked Salesforce Opportunity",
-        "description": "Mocked Salesforce Opportunity Creation",
-        "stageName": "Qualification",
-        "closeDate": "2025-04-15"
-    }
+  {
+    "attributes": {
+      "type": "Opportunity"
+    },
+    "name": "Mocked Salesforce Opportunity",
+    "description": "Mocked Salesforce Opportunity Creation",
+    "stageName": "Qualification",
+    "closeDate": "2025-04-15"
+  }
 ]
 ```
 
@@ -466,10 +487,10 @@ Returns a list of `Operation Response` objects.
 
 ```json
 [
-    {
-        "id": "mockedOpportunityId",
-        "success": true
-    }
+  {
+    "id": "mockedOpportunityId",
+    "success": true
+  }
 ]
 ```
 
@@ -481,13 +502,13 @@ Returns a list of `Operation Response` objects.
 
 ```json
 [
-    {
-        "attributes": {
-            "type": "Opportunity"
-        },
-        "id": "mockedOpportunityId",
-        "description": "Mocked Salesforce Opportunity Update"
-    }
+  {
+    "attributes": {
+      "type": "Opportunity"
+    },
+    "id": "mockedOpportunityId",
+    "description": "Mocked Salesforce Opportunity Update"
+  }
 ]
 ```
 
@@ -495,10 +516,10 @@ Returns a list of `Operation Response` objects.
 
 ```json
 [
-    {
-        "id": "mockedOpportunityId",
-        "success": true
-    }
+  {
+    "id": "mockedOpportunityId",
+    "success": true
+  }
 ]
 ```
 
@@ -516,22 +537,22 @@ Returns a list of `Operation Response` objects.
 
 ```json
 [
-    {
-        "attributes": {
-            "type": "Opportunity"
-        },
-        "id": "mockedExistingOpportunityId",
-        "description": "Mocked Salesforce Opportunity Upsert"
+  {
+    "attributes": {
+      "type": "Opportunity"
     },
-    {
-        "attributes": {
-            "type": "Opportunity"
-        },
-        "name": "Mocked Salesforce Opportunity",
-        "description": "Mocked Salesforce Opportunity Creation",
-        "stageName": "Needs Analysis",
-        "closeDate": "2025-04-15"
-    }
+    "id": "mockedExistingOpportunityId",
+    "description": "Mocked Salesforce Opportunity Upsert"
+  },
+  {
+    "attributes": {
+      "type": "Opportunity"
+    },
+    "name": "Mocked Salesforce Opportunity",
+    "description": "Mocked Salesforce Opportunity Creation",
+    "stageName": "Needs Analysis",
+    "closeDate": "2025-04-15"
+  }
 ]
 ```
 
@@ -539,14 +560,235 @@ Returns a list of `Operation Response` objects.
 
 ```json
 [
-    {
-        "id": "mockedOpportunityId",
-        "success": true
+  {
+    "id": "mockedOpportunityId",
+    "success": true
+  },
+  {
+    "id": "mockedOpportunityIdTwo",
+    "success": true,
+    "created": true
+  }
+]
+```
+
+
+### GET - `/getProduct2s`
+
+Returns a list of Salesforce `Product2` objects.
+
+#### Output Schema
+
+```json
+[
+  {
+    "attributes": {
+      "type": "Product2"
     },
-    {
-        "id": "mockedOpportunityIdTwo",
-        "success": true,
-        "created": true
-    }
+    "id": "mockedProduct2IdOne",
+    "name": "Mocked Software Subscription Product One",
+    "productCode": "S001",
+    "description": "Mocked Software Subscription Product One Description",
+    "isActive": true,
+    "family": "Software",
+    "type__c": "Subscription"
+  },
+  {
+    "attributes": {
+      "type": "Product2"
+    },
+    "id": "mockedProduct2IdTwo",
+    "name": "Mocked Hardware Base Product Product One",
+    "productCode": "H001",
+    "description": "Mocked Hardware Base Product Product One Description",
+    "isActive": true,
+    "family": "Hardware",
+    "type__c": "Base Product"
+  }
+]
+```
+
+
+### GET - `/getProduct2ById`
+
+Returns a Salesforce `Product2` object.
+
+#### Parameters
+
+| Parameter Name | Type   | Required | In   | Example            |
+|----------------|--------|----------|------|--------------------|
+| accountId      | string | true     | path | mockedProduct2OneId |
+
+#### Output Schema
+
+```json
+{
+  "attributes": {
+    "type": "Product2"
+  },
+  "Id": "mockedProduct2IdOne",
+  "Name": "Mocked Software Subscription Product One",
+  "ProductCode": "S001",
+  "Description": "Mocked Software Subscription Product One Description",
+  "IsActive": true,
+  "Family": "Software",
+  "Type__c": "Subscription"
+}
+```
+
+### GET - `/getProduct2sByFilter`
+
+Returns a list of Salesforce `Product2` objects.
+
+#### Parameters
+
+| Parameter Name | Type   | Required | In    | Example         |
+|----------------|--------|----------|-------|-----------------|
+| where          | string | true     | path  | Family:Maintenance,Software |
+| isAnd          | bool   | true     | query | true            |
+
+#### Output Schema
+
+```json
+[
+  {
+    "attributes": {
+      "type": "Product2"
+    },
+    "id": "mockedProduct2IdOne",
+    "name": "Mocked Software Subscription Product One",
+    "productCode": "S001",
+    "description": "Mocked Software Subscription Product One Description",
+    "isActive": true,
+    "family": "Software",
+    "type__c": "Subscription"
+  },
+  {
+    "attributes": {
+      "type": "Product2"
+    },
+    "id": "mockedProduct2IdTwo",
+    "name": "Mocked Hardware Base Product Product One",
+    "productCode": "H001",
+    "description": "Mocked Hardware Base Product Product One Description",
+    "isActive": true,
+    "family": "Hardware",
+    "type__c": "Base Product"
+  }
+]
+```
+
+### POST - `/postProduct2s`
+
+Returns a list of `Operation Response` objects.
+
+#### Input Schema
+
+```json
+[
+  {
+    "attributes": {
+      "type": "Product2"
+    },
+    "Id": "mockedProduct2IdOne",
+    "Name": "Mocked Software Subscription Product One",
+    "ProductCode": "S001",
+    "Description": "Mocked Software Subscription Product One Description",
+    "IsActive": true,
+    "Family": "Software",
+    "Type__c": "Subscription"
+  }
+]
+```
+
+#### Output Schema
+
+```json
+[
+  {
+    "id": "mockedProduct2Id",
+    "success": true
+  }
+]
+```
+
+### PATCH - `/patchProduct2s`
+
+Returns a list of `Operation Response` objects.
+
+#### Input Schema
+
+```json
+[
+  {
+    "attributes": {
+      "type": "Product2"
+    },
+    "Id": "mockedProduct2IdOne",
+    "Description": "Mocked Software Subscription Product One Description"
+  }
+]
+```
+
+#### Output Schema
+
+```json
+[
+  {
+    "id": "mockedProduct2Id",
+    "success": true
+  }
+]
+```
+
+### PUT - `/upsertProduct2s`
+
+Returns a list of `Operation Response` objects.
+
+#### Parameters
+
+| Parameter Name | Type   | Required | In   | Example |
+|----------------|--------|----------|------|---------|
+| externalField  | string | true     | path | Id      |
+
+#### Input Schema
+
+```json
+[
+  {
+    "attributes": {
+      "type": "Product2"
+    },
+    "id": "mockedProduct2IdOne",
+    "description": "Mocked Software Subscription Product One Description"
+  },
+  {
+    "attributes": {
+      "type": "Product2"
+    },
+    "id": "mockedProduct2IdTwo",
+    "name": "Mocked Hardware Base Product Product One",
+    "productCode": "H001",
+    "description": "Mocked Hardware Base Product Product One Description",
+    "isActive": true,
+    "family": "Hardware",
+    "type__c": "Base Product"
+  }
+]
+```
+
+#### Output Schema
+
+```json
+[
+  {
+    "id": "mockedProduct2Id",
+    "success": true
+  },
+  {
+    "id": "mockedProduct2IdTwo",
+    "success": true,
+    "created": true
+  }
 ]
 ```
