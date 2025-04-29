@@ -317,6 +317,162 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Product2",
+			"item": [
+				{
+					"name": "GET -  Product2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/getProduct2s",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"getProduct2s"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET -  Product2s By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/getProduct2ById?product2Id=01tgK000001h7QfQAI",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"getProduct2ById"
+							],
+							"query": [
+								{
+									"key": "product2Id",
+									"value": "01tgK000001h7QfQAI"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET -  Product2s By Filter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/getProduct2sByFilter?where=Family:Maintenance,Software&isAnd=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"getProduct2sByFilter"
+							],
+							"query": [
+								{
+									"key": "where",
+									"value": "Family:Maintenance,Software"
+								},
+								{
+									"key": "isAnd",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST-  Product2s",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"attributes\": {\r\n      \"type\": \"Product2\"\r\n    },\r\n    \"name\": \"Test Software Subscription Product Two\",\r\n    \"productCode\": \"S002\",\r\n    \"description\": \"Test Software Subscription Product Two Description\",\r\n    \"isActive\": true,\r\n    \"family\": \"Software\",\r\n    \"type__c\": \"Subscription\"\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/postProduct2s",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"postProduct2s"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH -  Product2s",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"attributes\": {\r\n      \"type\": \"Product2\"\r\n    },\r\n    \"id\": \"01tgK000001h8bFQAQ\",\r\n    \"description\": \"Test Software Subscription Product Two Description Update\"\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/patchProduct2s",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"patchProduct2s"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT -  Product2s",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"attributes\": {\r\n      \"type\": \"Product2\"\r\n    },\r\n    \"id\": \"01tgK000001h8bFQAQ\",\r\n    \"description\": \"Test Software Subscription Product Two Description Upsert\"\r\n  },\r\n  {\r\n    \"attributes\": {\r\n      \"type\": \"Product2\"\r\n    },\r\n    \"name\": \"Test Hardware Physical Product Two\",\r\n    \"productCode\": \"H002\",\r\n    \"description\": \"Test Hardware Physical Product Two Description\",\r\n    \"isActive\": true,\r\n    \"family\": \"Hardware\",\r\n    \"type__c\": \"Physical\"\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/upsertProduct2s?externalField=Id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"upsertProduct2s"
+							],
+							"query": [
+								{
+									"key": "externalField",
+									"value": "Id"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

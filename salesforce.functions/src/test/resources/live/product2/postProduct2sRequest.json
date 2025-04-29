@@ -1,0 +1,13 @@
+[
+  {
+    "attributes": {
+      "type": "Product2"
+    },
+    "name": "Test Software Subscription Product One",
+    "productCode": "S001",
+    "description": "Test Software Subscription Product One Description",
+    "isActive": true,
+    "family": "Software",
+    "type__c": "Subscription"
+  }
+]

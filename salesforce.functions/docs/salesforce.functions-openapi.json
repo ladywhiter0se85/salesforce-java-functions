@@ -1125,6 +1125,496 @@
                     }
                 }
             }
+        },
+        "/getProduct2s": {
+            "get": {
+                "summary": "Retrieve a list of Salesforce Product2s",
+                "description": "Retrieves all available Salesforce product2s with basic details.",
+                "operationId": "GetProduct2s",
+                "responses": {
+                    "200": {
+                        "description": "Successful response with list of Salesforce Product2s",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/product2"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "attributes": {
+                                            "type": "Product2"
+                                        },
+                                        "id": "mockedProduct2IdOne",
+                                        "name": "Mocked Software Subscription Product One",
+                                        "productCode": "S001",
+                                        "description": "Mocked Software Subscription Product One Description",
+                                        "isActive": true,
+                                        "family": "Software",
+                                        "type__c": "Subscription"
+                                    },
+                                    {
+                                        "attributes": {
+                                            "type": "Product2"
+                                        },
+                                        "id": "mockedProduct2IdTwo",
+                                        "name": "Mocked Hardware Base Product Product One",
+                                        "productCode": "H001",
+                                        "description": "Mocked Hardware Base Product Product One Description",
+                                        "isActive": true,
+                                        "family": "Hardware",
+                                        "type__c": "Base Product"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input or request format.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "An unexpected error occurred.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getProduct2ById": {
+            "get": {
+                "summary": "Retrieve a Salesforce Product2 by Id",
+                "description": "Retrieves a Salesforce product2 by id with basic details.",
+                "operationId": "GetProduct2ById",
+                "parameters": [
+                    {
+                        "name": "product2Id",
+                        "in": "query",
+                        "description": "Salesforce Product2 Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response with a Salesforce Product2",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/product2"
+                                },
+                                "example": {
+                                    "attributes": {
+                                        "type": "Product2"
+                                    },
+                                    "Id": "mockedProduct2IdOne",
+                                    "Name": "Mocked Software Subscription Product One",
+                                    "ProductCode": "S001",
+                                    "Description": "Mocked Software Subscription Product One Description",
+                                    "IsActive": true,
+                                    "Family": "Software",
+                                    "Type__c": "Subscription"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input or request format.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "An unexpected error occurred.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getProduct2sByFilter": {
+            "get": {
+                "summary": "Retrieve a Salesforce Product2s by Filter",
+                "description": "Retrieves Salesforce product2s by filter with basic details.",
+                "operationId": "GetProduct2sByFilter",
+                "parameters": [
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": "Where Condition Filters",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "isAnd",
+                        "in": "query",
+                        "description": "Type of Condition Check AND/OR",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response with list of Salesforce Product2s",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/product2"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "attributes": {
+                                            "type": "Product2"
+                                        },
+                                        "id": "mockedProduct2IdOne",
+                                        "name": "Mocked Software Subscription Product One",
+                                        "productCode": "S001",
+                                        "description": "Mocked Software Subscription Product One Description",
+                                        "isActive": true,
+                                        "family": "Software",
+                                        "type__c": "Subscription"
+                                    },
+                                    {
+                                        "attributes": {
+                                            "type": "Product2"
+                                        },
+                                        "id": "mockedProduct2IdTwo",
+                                        "name": "Mocked Hardware Base Product Product One",
+                                        "productCode": "H001",
+                                        "description": "Mocked Hardware Base Product Product One Description",
+                                        "isActive": true,
+                                        "family": "Hardware",
+                                        "type__c": "Base Product"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input or request format.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "An unexpected error occurred.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/postProduct2s": {
+            "post": {
+                "summary": "Create Salesforce Product2",
+                "description": "Creates Salesforce product2s.",
+                "operationId": "PostProduct2s",
+                "requestBody": {
+                    "description": "List of Product2 objects to create",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/product2"
+                                }
+                            },
+                            "example": [
+                                {
+                                    "attributes": {
+                                        "type": "Product2"
+                                    },
+                                    "id": "mockedProduct2IdOne",
+                                    "name": "Mocked Software Subscription Product One",
+                                    "productCode": "S001",
+                                    "description": "Mocked Software Subscription Product One Description",
+                                    "isActive": true,
+                                    "family": "Software",
+                                    "type__c": "Subscription"
+                                },
+                                {
+                                    "attributes": {
+                                        "type": "Product2"
+                                    },
+                                    "id": "mockedProduct2IdTwo",
+                                    "name": "Mocked Hardware Base Product Product One",
+                                    "productCode": "H001",
+                                    "description": "Mocked Hardware Base Product Product One Description",
+                                    "isActive": true,
+                                    "family": "Hardware",
+                                    "type__c": "Base Product"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response with Operation Responses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/operationResponse"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": "mockedSObjectId",
+                                        "success": true
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input or request format.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "An unexpected error occurred.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/patchProduct2s": {
+            "patch": {
+                "summary": "Updates Salesforce Product2s",
+                "description": "Updates Salesforce product2s.",
+                "operationId": "PatchProduct2s",
+                "requestBody": {
+                    "description": "List of Product2 objects to update",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/product2"
+                                }
+                            },
+                            "example": [
+                                {
+                                    "attributes": {
+                                        "type": "Product2"
+                                    },
+                                    "id": "mockedProduct2IdOne",
+                                    "name": "Mocked Software Subscription Product One",
+                                    "productCode": "S001",
+                                    "description": "Mocked Software Subscription Product One Description",
+                                    "isActive": true,
+                                    "family": "Software",
+                                    "type__c": "Subscription"
+                                },
+                                {
+                                    "attributes": {
+                                        "type": "Product2"
+                                    },
+                                    "id": "mockedProduct2IdTwo",
+                                    "name": "Mocked Hardware Base Product Product One",
+                                    "productCode": "H001",
+                                    "description": "Mocked Hardware Base Product Product One Description",
+                                    "isActive": true,
+                                    "family": "Hardware",
+                                    "type__c": "Base Product"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response with Operation Responses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/operationResponse"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": "mockedSObjectId",
+                                        "success": true
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input or request format.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "An unexpected error occurred.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/upsertProduct2s": {
+            "put": {
+                "summary": "Upsert Salesforce Product2s",
+                "description": "Upsert Salesforce product2s.",
+                "operationId": "PutProduct2s",
+                "parameters": [
+                    {
+                        "name": "externalField",
+                        "in": "query",
+                        "description": "Salesforce External field used for upsert.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "List of Product2 objects to upsert",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/product2"
+                                }
+                            },
+                            "example": [
+                                {
+                                    "attributes": {
+                                        "type": "Product2"
+                                    },
+                                    "id": "mockedProduct2IdOne",
+                                    "name": "Mocked Software Subscription Product One",
+                                    "productCode": "S001",
+                                    "description": "Mocked Software Subscription Product One Description",
+                                    "isActive": true,
+                                    "family": "Software",
+                                    "type__c": "Subscription"
+                                },
+                                {
+                                    "attributes": {
+                                        "type": "Product2"
+                                    },
+                                    "id": "mockedProduct2IdTwo",
+                                    "name": "Mocked Hardware Base Product Product One",
+                                    "productCode": "H001",
+                                    "description": "Mocked Hardware Base Product Product One Description",
+                                    "isActive": true,
+                                    "family": "Hardware",
+                                    "type__c": "Base Product"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response with Operation Responses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/operationResponse"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": "mockedSObjectId",
+                                        "success": true
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input or request format.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "An unexpected error occurred.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -1673,6 +2163,94 @@
                         "type": "string"
                     },
                     "mainCompetitors__c": {
+                        "type": "string"
+                    }
+                }
+            },
+            "product2": {
+                "type": "object",
+                "properties": {
+                    "attributes": {
+                        "$ref": "#/components/schemas/attributes"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "productCode": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "isActive": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "createdDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "createdById": {
+                        "type": "string"
+                    },
+                    "lastModifiedDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "lastModifiedById": {
+                        "type": "string"
+                    },
+                    "systemModstamp": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "family": {
+                        "type": "string"
+                    },
+                    "externalDataSourceId": {
+                        "type": "string"
+                    },
+                    "externalId": {
+                        "type": "string"
+                    },
+                    "displayUrl": {
+                        "type": "string"
+                    },
+                    "quantityUnitOfMeasure": {
+                        "type": "string"
+                    },
+                    "isDeleted": {
+                        "type": "boolean"
+                    },
+                    "isArchived": {
+                        "type": "boolean"
+                    },
+                    "lastViewedDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "lastReferencedDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "stockKeepingUnit": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "productClass": {
+                        "type": "string"
+                    },
+                    "type__c": {
                         "type": "string"
                     }
                 }

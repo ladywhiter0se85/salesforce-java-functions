@@ -1,0 +1,20 @@
+[
+  {
+    "attributes": {
+      "type": "Product2"
+    },
+    "id": "01tgK000001h5VKQAY",
+    "description": "Test Software Subscription Product One Description Upsert"
+  },
+  {
+    "attributes": {
+      "type": "Product2"
+    },
+    "name": "Test Hardware Physical Product One",
+    "productCode": "H001",
+    "description": "Test Hardware Physical Product One Description",
+    "isActive": true,
+    "family": "Hardware",
+    "type__c": "Physical"
+  }
+]

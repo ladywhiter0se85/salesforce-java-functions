@@ -1,0 +1,12 @@
+{
+  "attributes": {
+    "type": "Product2"
+  },
+  "Id": "mockedProduct2IdOne",
+  "Name": "Mocked Software Subscription Product One",
+  "ProductCode": "S001",
+  "Description": "Mocked Software Subscription Product One Description",
+  "IsActive": true,
+  "Family": "Software",
+  "Type__c": "Subscription"
+}
