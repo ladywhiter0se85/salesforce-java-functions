@@ -26,10 +26,10 @@ public class ApiService {
     private final ObjectMapper objectMapper;
     private final String requestURL;
 
-    public ApiService(RestTemplate restTemplate, ConfigurationUtility config) throws Exception {
+    public ApiService(RestTemplate restTemplate, ObjectMapper objectMapper, ConfigurationUtility config) throws Exception {
         this.restTemplate = restTemplate;
         this.salesforceConfig = config.getSalesforceConfig();
-        objectMapper = new ObjectMapper();
+        this.objectMapper = objectMapper;
         requestURL = salesforceConfig.getDomainUrl() + "/services/data/v" + salesforceConfig.getVersion() + "/";
     }
 

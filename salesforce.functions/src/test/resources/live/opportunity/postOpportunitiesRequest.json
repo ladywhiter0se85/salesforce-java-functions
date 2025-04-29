@@ -1,0 +1,12 @@
+[
+    {
+        "attributes": {
+            "type": "Opportunity"
+        },
+        "name": "Test Opp 1",
+        "amount": "35000",
+        "description": "Test Opp 1 Creation",
+        "stageName": "Qualification",
+        "closeDate": "2025-04-15"
+    }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "attributes": {
+      "type": "Opportunity"
+    },
+    "id": "006gK000001ZPPZQA4",
+    "description": "Test Opp 1 Upsert",
+    "accountId": "001gK00000391O9QAI"
+  },
+  {
+    "attributes": {
+      "type": "Opportunity"
+    },
+    "name": "Test Opp 2",
+    "description": "Test Opp 2 New",
+    "stageName": "Needs Analysis",
+    "closeDate": "2025-04-15",
+    "accountId": "001gK00000395JiQAI"
+  }
+]

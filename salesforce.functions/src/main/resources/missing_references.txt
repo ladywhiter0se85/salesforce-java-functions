@@ -2,3 +2,6 @@ User
 DandBCompany
 OperatingHours
 Location
+Campaign
+Pricebook2
+Contact
