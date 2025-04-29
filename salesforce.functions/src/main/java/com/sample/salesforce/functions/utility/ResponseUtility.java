@@ -1,12 +1,12 @@
 package com.sample.salesforce.functions.utility;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.azure.functions.HttpRequestMessage;
 import com.microsoft.azure.functions.HttpResponseMessage;
 import com.microsoft.azure.functions.HttpStatus;
 import com.sample.salesforce.functions.model.response.ApiResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +20,16 @@ import java.util.Scanner;
 
 @Service
 public final class ResponseUtility {
-    private static final ObjectMapper objectMapper = new ObjectMapper()
-            .setSerializationInclusion(JsonInclude.Include.NON_DEFAULT);
+    private static ObjectMapper objectMapper;
+
+    @Autowired
+    public ResponseUtility(ObjectMapper mapper) {
+        objectMapper = mapper;
+    }
+
+    private ResponseUtility() {
+        // private constructor to prevent instantiation
+    }
 
     public static String readFile(String filePath) throws IOException {
         // Attempt to read from classpath

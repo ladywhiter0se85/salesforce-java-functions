@@ -161,6 +161,162 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Opportunities",
+			"item": [
+				{
+					"name": "GET -  Opportunities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/getOpportunities",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"getOpportunities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET -  Opportunities By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/getOpportunityById?opportunityId=006gK000000J5DhQAK",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"getOpportunityById"
+							],
+							"query": [
+								{
+									"key": "opportunityId",
+									"value": "006gK000000J5DhQAK"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET -  Opportunities By Filter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/getOpportunitiesByFilter?where=StageName:Closed Won%26Type:New Customer&isAnd=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"getOpportunitiesByFilter"
+							],
+							"query": [
+								{
+									"key": "where",
+									"value": "StageName:Closed Won%26Type:New Customer"
+								},
+								{
+									"key": "isAnd",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST-  Opportunities",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"attributes\": {\r\n            \"type\": \"Opportunity\"\r\n        },\r\n        \"name\": \"Test Opp 2\",\r\n        \"amount\": \"35000\",\r\n        \"description\": \"Test Opp 2 Creation\",\r\n        \"stageName\": \"Qualification\",\r\n        \"closeDate\": \"2025-04-15\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/postOpportunities",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"postOpportunities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH -  Opportunities",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"attributes\": {\r\n            \"type\": \"Opportunity\"\r\n        },\r\n        \"Id\": \"006gK000001ZOgQQAW\",\r\n        \"Description\": \"Test Opp 2 Update\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/patchOpportunities",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"patchOpportunities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT -  Opportunities",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"attributes\": {\r\n      \"type\": \"Opportunity\"\r\n    },\r\n    \"id\": \"006gK000001ZOgQQAW\",\r\n    \"description\": \"Test Opp 1 Upsert\",\r\n    \"accountId\": \"001gK00000391O9QAI\"\r\n  },\r\n  {\r\n    \"attributes\": {\r\n      \"type\": \"Opportunity\"\r\n    },\r\n    \"name\": \"Test Opp 3\",\r\n    \"description\": \"Test Opp 3 New\",\r\n    \"stageName\": \"Needs Analysis\",\r\n    \"closeDate\": \"2025-04-15\",\r\n    \"accountId\": \"001gK00000395JiQAI\"\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/upsertOpportunities?externalField=Id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"upsertOpportunities"
+							],
+							"query": [
+								{
+									"key": "externalField",
+									"value": "Id"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

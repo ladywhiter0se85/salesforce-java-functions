@@ -47,7 +47,7 @@ get_java_type() {
 	case "$1" in
 	"picklist" | "textarea" | "string" | "email" | "phone" | "url" | "id") echo "String" ;;
 	"boolean") echo "boolean" ;;
-	"double" | "currency") echo "double" ;;
+	"double" | "currency" | "percent") echo "double" ;;
 	"int") echo "int" ;;
   "date")
     add_import_if_missing "java.time.LocalDate" "$SOBJECT_FILE"
@@ -94,10 +94,23 @@ process_references() {
 		INITIAL_NAME=$(echo "$FIELD" | cut -d: -f1)
     NAME=$(to_camel_case "$INITIAL_NAME")
 
-		# Check if the reference is the same as the SObject
-		if [[ "$REF_OBJECT" == "$SOBJECT" ]]; then
+    echo "    @JsonAlias({\"$NAME\", \"$INITIAL_NAME\"})" >>"$SOBJECT_FILE"
+
+    # If the field ends with 'Id', use String (means its likely a lookup)
+      if [[ "$INITIAL_NAME" == *Id ]]; then
+        echo "    public String $NAME;" >>"$SOBJECT_FILE"
+        return
+      fi
+
+    # Check if the referenced SObject Java file already exists
+    JAVA_FILE_PATH="$JAVA_DIR/model/salesforce/${REF_OBJECT}.java"
+
+    if [[ "$REF_OBJECT" == "$SOBJECT" ]]; then
 			# If it's the same, use the reference object as it is
 			echo "    public $REF_OBJECT $NAME;" >>"$SOBJECT_FILE"
+    elif [[ -f "$JAVA_FILE_PATH" ]]; then
+      # Java file exists, use the correct type
+      echo "    public $REF_OBJECT $NAME;" >>"$SOBJECT_FILE"
 		else
 			# If it's not the same, use Object as the reference type
 			echo "    public Object $NAME;" >>"$SOBJECT_FILE"
